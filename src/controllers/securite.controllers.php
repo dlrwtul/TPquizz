@@ -5,6 +5,7 @@ require_once(PATH_SRC."models".DIRECTORY_SEPARATOR."users.model.php");
 if ($_SERVER["REQUEST_METHOD"]== "POST") {
     if (isset($_POST['action'])) {
         if ($_POST['action'] == "connexion") {
+            $_SESSION['post'] = $_POST;
             $login = $_POST['login'];
             $password = $_POST['password'];
             var_dump($_POST);
@@ -100,10 +101,17 @@ function inscription($prenom,$nom,$login,$password,$cpassword)
     }
 
     if (count($messageErrorI) == 0) {
-        subscribe_user($prenom,$nom,$login,$password);
-        header("location:".WEBROOT."?controller=securite&action=inscription&true=true");
+        if (!login_present($login)) {
+            subscribe_user($prenom,$nom,$login,$password);
+            header("location:".WEBROOT."?controller=securite&action=inscription&true=true");
+        } else {
+            $messageErrorI['loginpresent'] = "login deja utilisé";
+            $_SESSION['errori'] = $messageErrorI;
+            header("location:".WEBROOT."?controller=securite&action=inscription");
+        }
+        
     } else {
-        $_SESSION['error'] = $messageErrorI;
+        $_SESSION['errori'] = $messageErrorI;
         header("location:".WEBROOT."?controller=securite&action=inscription");
     }
 

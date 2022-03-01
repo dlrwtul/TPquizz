@@ -1,13 +1,9 @@
 <?php
 require_once(PATH_VIEWS."include".DIRECTORY_SEPARATOR."header.html.php");
+require_once(PATH_VIEWS."include".DIRECTORY_SEPARATOR."menu.html.php");
 ?>
 
 <div class="main">
-    <div class="menu">
-        <div class="menutitle"><h1>CREER ET PARAMETRER VOS QUIZZ</h1></div>
-        <div class="deconnexion"><a href="<?php echo WEBROOT."?controller=securite&action=deconnexion";?>">Deconnexion</a></div>
-    </div>
-    <div class="affichage">
     <div class="gauche">
         <div class="head">
             <img src="<?php 
@@ -17,18 +13,18 @@ require_once(PATH_VIEWS."include".DIRECTORY_SEPARATOR."header.html.php");
                 echo WEBROOT."img".DIRECTORY_SEPARATOR."player.png" ; 
             }
             ?>" alt="">
-            <span style="margin-left: 2%;"><?php echo $_SESSION[USER_KEY]['prenom']." ".$_SESSION[USER_KEY]['nom']  ;?></span>
-            <span id="role" style="font-weight: bold;margin-left: 2%;"><?php echo $_SESSION[USER_KEY]['role'] ?></span>
+            <span><?php echo $_SESSION[USER_KEY]['prenom']." ".$_SESSION[USER_KEY]['nom']  ;?></span>
+            <span style="font-weight: bold;"><?php echo $_SESSION[USER_KEY]['role'] ?></span>
         </div>
-        <div class="choice">
+        <div class="choice" <?php /* if (!is_admin()) {?> style="backgroun-color: #17B169;color: white;" <?php } */?>>
             <?php
                 if (is_admin()) {
             ?>
             <ul>
-                <div><li id="listerjoueurs">Listes Questions</li><img src="<?php echo WEBROOT."img".DIRECTORY_SEPARATOR."ic-liste.png" ; ?>" alt=""></div>
-                <div><li id="ajouteradmin">Ajouter Admin</li><img src="<?php echo WEBROOT."img".DIRECTORY_SEPARATOR."ic-ajout.png" ; ?>" alt=""></div>
-                <div><li id="listerquestions">Listes Joueurs </li><img src="<?php echo WEBROOT."img".DIRECTORY_SEPARATOR."ic-liste.png" ; ?>" alt=""></div>
-                <div><li id="ajouterquestions">Ajouter Questions</li><img src="<?php echo WEBROOT."img".DIRECTORY_SEPARATOR."ic-ajout.png" ; ?>" alt=""></div>
+                <li id="listerjoueurs">Listes Joueurs</li>
+                <li id="listerquestions">Listes Questions</li>
+                <li id="ajouterquestions">Ajouter Questions</li>
+                <li id="ajouteradmin">Ajouter Admin</li>
             </ul>
             <?php
             } else {
@@ -49,11 +45,11 @@ require_once(PATH_VIEWS."include".DIRECTORY_SEPARATOR."header.html.php");
             ?>
         </div>
     </div>
-<!--     <?php if (is_admin()) {?>
- -->    <div class="droite">
-<!--             <div class="default"><h1>Bienvenue Admin</h1></div> -->
-            <h1>Tableaux des joueurs</h1>
+    <?php if (is_admin()) {?>
+        <div class="droite">
+            <div class="default"><h1>Bienvenue Admin</h1></div>
             <div class="listejoueurs">
+                <h1>Tableaux des joueurs</h1>
                 <table>
                     <tr>
                         <th>Prenom</th>
@@ -62,11 +58,11 @@ require_once(PATH_VIEWS."include".DIRECTORY_SEPARATOR."header.html.php");
                     </tr>
                     <?php 
                         $array = find_data("users");
-                        foreach ($array as $value) {
+                        foreach ($array as$value) {
                             echo "<tr>";
                             echo "<td>".$value['prenom']."</td>";
                             echo "<td>".$value['nom']."</td>";
-                            echo "<td>".$value['score']." pts"."</td>";
+                            echo "<td>".$value['score']."</td>";
                             echo "</tr>";
                         }
 
@@ -74,12 +70,10 @@ require_once(PATH_VIEWS."include".DIRECTORY_SEPARATOR."header.html.php");
 
                 </table>
             </div>
-            <div class="suivant"><span id="suivantliste"><button>Suivant</button></span></div>
         </div>
-<!--     <?php } else {?>
- -->        <div class="droitejoueur"><div><button id="jouer">Jouer</button></div></div>
-<!--     <?php } ?>
- -->    </div>
+    <?php } else {?>
+        <div class="droitejoueur"><div><button id="jouer">Jouer</button></div></div>
+    <?php } ?>
 </div>
 
 <?php

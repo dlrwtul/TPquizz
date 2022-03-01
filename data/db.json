@@ -39,6 +39,22 @@
             "password": "Saye11",
             "role": "JOUEUR",
             "score": 0
+        },
+        {
+            "nom": "diop",
+            "prenom": "ibou",
+            "login": "iboudiop@gmail.com",
+            "password": "Ibou11",
+            "role": "JOUEUR",
+            "score": 0
+        },
+        {
+            "nom": "jbjqisbc",
+            "prenom": "Admin",
+            "login": "ibou@gmail.com",
+            "password": "1Azert",
+            "role": "JOUEUR",
+            "score": 0
         }
     ]
 }

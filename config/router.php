@@ -10,7 +10,7 @@ if (isset($_REQUEST['controller'])) {
             require_once(PATH_SRC."controllers".DIRECTORY_SEPARATOR."users.controllers.php");
             break;
         default:
-            echo "default";
+            require_once(PATH_VIEWS."securite".DIRECTORY_SEPARATOR."error.html.php");
             break;
     }
 }else {

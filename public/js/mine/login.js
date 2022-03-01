@@ -60,7 +60,7 @@ function verification(champ , funchamp) {
 //===========================================
 
 btn.addEventListener('click',function (e) {
-    alert("ok");
+    
     verification(login,valid_login);
     verification(password,valid_password);
     if (champ_rempli(login) && champ_rempli(password)) {

@@ -1,0 +1,139 @@
+.main {
+    height: 40em;
+    margin: 3% 10%;
+    display: flex; 
+    border: 3px solid #1B4D3E;
+    border-radius: 15px;
+}
+
+.gauche {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    border-right: 3px solid #1B4D3E;
+}
+
+.head {
+    border-top-left-radius: 15px;
+    height: 20%;
+    width: 100%;
+    padding: 0 3%;
+    display: flex;
+    align-items: center;
+    background-color: #1B4D3E;
+}
+
+.head img {
+    width: 7.5em;
+    height: 7em;
+    border: 3px solid #17B169;
+    border-radius: 50%;
+    transition: ease-in-out all 0.35s;
+}
+
+.head img:hover {
+    border-radius: 10%;
+}
+
+.head span {
+    font-size: 1.25em;
+    color: white;
+    margin-left: 2em;
+}
+
+.choice {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.choice ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.choice ul li {
+    border-bottom: 3px solid black;
+    display: inline-flex;
+    align-items: center;
+    height: 15%;
+    font-size: 1.5em;
+    padding-left: 3%;
+    border-left: 8px solid #17B169;
+    cursor: pointer;
+    transition: ease-in-out all 0.25s;
+}
+
+.choice ul li:hover {
+    border-left: 20px solid #17B169;
+    padding-left: 5%;
+    /* background-color: #17B169;
+    color: white; */
+}
+
+.droite {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+}
+
+.listejoueurs {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.listejoueurs h1 {
+    margin-bottom: 5%;
+}
+
+.listejoueurs table {
+    width: 100%;
+    border: 3px solid black;
+    border-collapse: collapse;
+    font-size: 1.5em;
+}
+
+.listejoueurs th,td {
+    border: 2px solid black;
+}
+
+.listejoueurs td {
+    text-align: center;
+}
+
+.choice div {
+    margin: 0 10%;
+    font-size: 1.5em;
+}
+
+.droitejoueur {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#jouer {
+    cursor: pointer;
+    background-color: #1B4D3E;
+    color: white;
+    font-size: 2em;
+    width: 10em;
+    height: 2.5em;
+    padding: 0% 20%;
+    border-radius: 15px;
+    border: none;
+    transition: ease-in-out all 0.35s;
+}
+
+#jouer:hover {
+    width: 12em;
+    background-color: #09251d;
+}

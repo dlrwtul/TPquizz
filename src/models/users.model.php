@@ -10,6 +10,17 @@ function authentificate($login,$password)
 
 }
 
+function login_present($login)
+{
+    $users=find_data("users");
+    foreach ($users as $user) {
+        if ($user['login'] == $login) {
+            return true;
+        }
+    }
+    return false;
+}
+
 function subscribe_user($prenom,$nom,$login,$password)
 {
     $myObj = new StdClass();
@@ -21,3 +32,4 @@ function subscribe_user($prenom,$nom,$login,$password)
     $myObj->score = 0;
     return save_data("users",$myObj);
 }
+

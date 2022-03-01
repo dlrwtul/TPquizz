@@ -1,38 +1,34 @@
 <?php
 require_once(PATH_VIEWS."include".DIRECTORY_SEPARATOR."header.html.php");
+$loginr = "";
+$inputbc = "rgb(81,191,208)";
+if (isset($_SESSION['error']['login'])) {
+    $loginr = $_SESSION['post']['login'];
+    $inputbc = "red";
+}
 ?>
 
-<div class="container">
-    <div class="body">
-        <div class="formtitle">Connexion</div>
+<div class="body">
+        <div class="formtitle"><span>Login Form</span><span>+</span></div>
         <div class="formulaire">
             <form action="<?php WEBROOT ?>" method="post">
                 <input type="hidden" name="controller" value="securite">
                 <input type="hidden" name="action" value="connexion">
-
-                <div class="login"><label for="login">Login</label><input type="text" id="login" name="login" placeholder="email" value="">
-                <!-- <i style="color: green;bottom:30px;" class="bi bi-check-circle-fill login"></i>
-                <i style="color: red;bottom:53px;" class="bi bi-exclamation-circle-fill login"></i></div> -->
+                <div class="login"><input type="text" style="border-color: <?php echo $inputbc; ?>;" id="login" name="login" placeholder="Login" value="<?php $loginr ?>"><img src="<?php echo WEBROOT."img".DIRECTORY_SEPARATOR."ic-login.png"; ?>" alt=""></div>
                 <small id="errorlogin">message error</small>
-                <div class="password"><label for="password">Password</label><input type="password" id="password" name="password" placeholder="mot de passe" value="">
-                <!-- <i style="color: green;bottom:30px;" class="bi bi-check-circle-fill password"></i>
-                <i style="color: red;bottom:53px;" class="bi bi-exclamation-circle-fill password"></i></div> -->
+                <div class="password"><input type="password" style="border-color: <?php echo $inputbc; ?>;" id="password" name="password" placeholder="Password" value=""><img src="" alt=""></div>
                 <small id="errorpassword">message error</small>
                 <small id="lasterror">
-                    <?php
-                        if (isset($_SESSION['error'])) {
-                            echo $_SESSION['error']['unauthentified'];
-                        }
-                    ?>
+                    <?php if (isset($_SESSION['error']['unauthentified'])) {echo $_SESSION['error']['unauthentified'];}?>
                 </small>
                 
-                <input type="submit" id="btn" name="btn" value="Connexion">
+                <div class="last">
+                    <input type="submit" id="btn" name="btn" value="Connexion">
+                    <small id="inscription"><a href="<?php echo WEBROOT."?controller=securite&action=inscription";?>">S'inscrire pour jouer?</a></small>
+                </div>
             </form>
         </div>
     </div>
-    <small id="inscription"><a href="<?php echo WEBROOT."?controller=securite&action=inscription";?>">S'inscrire ?</a></small>
-</div>
-
 <?php
 if (isset($_SESSION['error'])) {
     unset($_SESSION['error']); 

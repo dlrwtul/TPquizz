@@ -1,0 +1,44 @@
+{
+    "users": [
+        {
+            "nom": "admin",
+            "prenom": "admin",
+            "login": "admin07@gmail.com",
+            "password": "Admin07",
+            "role": "ADMIN",
+            "score": 0
+        },
+        {
+            "nom": "joueur",
+            "prenom": "joueur",
+            "login": "joueur07@gmail.com",
+            "password": "Joueur07",
+            "role": "JOUEUR",
+            "score": 10
+        },
+        {
+            "nom": "Diop",
+            "prenom": "Lang",
+            "login": "langdiop@gmail.com",
+            "password": "LANG11",
+            "role": "JOUEUR",
+            "score": 0
+        },
+        {
+            "nom": "wrld",
+            "prenom": "lut",
+            "login": "lutwrld@gmail.com",
+            "password": "Lutwrld11",
+            "role": "JOUEUR",
+            "score": 0
+        },
+        {
+            "nom": "syll",
+            "prenom": "saye",
+            "login": "sayesyll@gmail.com",
+            "password": "Saye11",
+            "role": "JOUEUR",
+            "score": 0
+        }
+    ]
+}

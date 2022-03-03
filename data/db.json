@@ -55,6 +55,46 @@
             "password": "1Azert",
             "role": "JOUEUR",
             "score": 0
+        },
+        {
+            "nom": "bongo",
+            "prenom": "bongo",
+            "login": "bongo@gmail.com",
+            "password": "Bongo11",
+            "role": "JOUEUR",
+            "score": 0
+        },
+        {
+            "nom": "diop",
+            "prenom": "base",
+            "login": "basediop@gmail.com",
+            "password": "Base11",
+            "role": "JOUEUR",
+            "score": 0
+        },
+        {
+            "nom": "soum",
+            "prenom": "nabou",
+            "login": "nabousoum@gmail.com",
+            "password": "Nabou11",
+            "role": "JOUEUR",
+            "score": 0
+        },
+        {
+            "nom": "messi",
+            "prenom": "messi",
+            "login": "messi@gmail.com",
+            "password": "Messi11",
+            "role": "ADMIN",
+            "score": 0
+        },
+        {
+            "nom": "admin",
+            "prenom": "rasta",
+            "login": "rasta@gmail.com",
+            "password": "Rasta11",
+            "role": "ADMIN",
+            "score": 0
         }
     ]
 }

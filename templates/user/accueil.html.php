@@ -1,5 +1,6 @@
 <?php
 require_once(PATH_VIEWS."include".DIRECTORY_SEPARATOR."header.html.php");
+
 ?>
 
 <div class="main">
@@ -11,10 +12,12 @@ require_once(PATH_VIEWS."include".DIRECTORY_SEPARATOR."header.html.php");
     <div class="gauche">
         <div class="head">
             <img src="<?php 
-            if (is_admin()) {
-                echo WEBROOT."img".DIRECTORY_SEPARATOR."avataradmin.png" ; 
-            } else {
-                echo WEBROOT."img".DIRECTORY_SEPARATOR."player.png" ; 
+            if (isset($_GET['action'])) {
+                if (is_admin()) {
+                    echo WEBROOT."img".DIRECTORY_SEPARATOR."avataradmin.png" ; 
+                } else {
+                    echo WEBROOT."img".DIRECTORY_SEPARATOR."player.png" ; 
+                }
             }
             ?>" alt="">
             <span style="margin-left: 2%;"><?php echo $_SESSION[USER_KEY]['prenom']." ".$_SESSION[USER_KEY]['nom']  ;?></span>
@@ -22,13 +25,14 @@ require_once(PATH_VIEWS."include".DIRECTORY_SEPARATOR."header.html.php");
         </div>
         <div class="choice">
             <?php
-                if (is_admin()) {
+                if (isset($_GET['action'])) {
+                    if (is_admin()) {
             ?>
             <ul>
-                <div><li id="listerjoueurs">Listes Questions</li><img src="<?php echo WEBROOT."img".DIRECTORY_SEPARATOR."ic-liste.png" ; ?>" alt=""></div>
-                <div><li id="ajouteradmin">Ajouter Admin</li><img src="<?php echo WEBROOT."img".DIRECTORY_SEPARATOR."ic-ajout.png" ; ?>" alt=""></div>
-                <div><li id="listerquestions">Listes Joueurs </li><img src="<?php echo WEBROOT."img".DIRECTORY_SEPARATOR."ic-liste.png" ; ?>" alt=""></div>
-                <div><li id="ajouterquestions">Ajouter Questions</li><img src="<?php echo WEBROOT."img".DIRECTORY_SEPARATOR."ic-ajout.png" ; ?>" alt=""></div>
+                <div id="listerquestions"><li>Listes Questions</li><img src="<?php echo WEBROOT."img".DIRECTORY_SEPARATOR."ic-liste.png" ; ?>" alt=""></div>
+                <div id="ajouteradmin"><li>Ajouter Admin</li><img src="<?php echo WEBROOT."img".DIRECTORY_SEPARATOR."ic-ajout.png" ; ?>" alt=""></div>
+                <div id="listerjoueurs"><li>Listes Joueurs </li><img src="<?php echo WEBROOT."img".DIRECTORY_SEPARATOR."ic-liste.png" ; ?>" alt=""></div>
+                <div id="ajouterquestions"><li>Ajouter Questions</li><img src="<?php echo WEBROOT."img".DIRECTORY_SEPARATOR."ic-ajout.png" ; ?>" alt=""></div>
             </ul>
             <?php
             } else {
@@ -45,43 +49,40 @@ require_once(PATH_VIEWS."include".DIRECTORY_SEPARATOR."header.html.php");
             <div id="rangjoueur"><?php echo "Votre rang au classement est : ".$rang ; ?></div>
 
             <?php
-            }
+            }}
             ?>
         </div>
     </div>
-<!--     <?php if (is_admin()) {?>
+<!--     <?php
+            if (isset($_GET['action'])) {
+                if (is_admin()) {
+            ?>
  -->    <div class="droite">
-<!--             <div class="default"><h1>Bienvenue Admin</h1></div> -->
-            <h1>Tableaux des joueurs</h1>
+            <div class="default"><h1>Bienvenue Admin</h1></div>
             <div class="listejoueurs">
-                <table>
-                    <tr>
-                        <th>Prenom</th>
-                        <th>Nom</th>
-                        <th>Score</th>
-                    </tr>
-                    <?php 
-                        $array = find_data("users");
-                        foreach ($array as $value) {
-                            echo "<tr>";
-                            echo "<td>".$value['prenom']."</td>";
-                            echo "<td>".$value['nom']."</td>";
-                            echo "<td>".$value['score']." pts"."</td>";
-                            echo "</tr>";
-                        }
-
-                    ?>
-
-                </table>
+                <?php require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."listes.joueurs.html.php") ?>
             </div>
-            <div class="suivant"><span id="suivantliste"><button>Suivant</button></span></div>
+            <div class="newadmin">
+                <?php 
+                require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."ajout.admin.html.php") 
+                ?>
+            </div>
+            <div class="listequestions">
+                listequestions
+            </div>
+            <div class="newquestion">
+                newquestion
+            </div>
         </div>
 <!--     <?php } else {?>
  -->        <div class="droitejoueur"><div><button id="jouer">Jouer</button></div></div>
-<!--     <?php } ?>
+<!--     <?php }   }?>
  -->    </div>
 </div>
 
 <?php
 require_once(PATH_VIEWS."include".DIRECTORY_SEPARATOR."footer.html.php");
+/* if (isset($_GET['true'])) {
+    unset($_GET['true']);
+} */
 ?>

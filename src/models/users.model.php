@@ -33,3 +33,15 @@ function subscribe_user($prenom,$nom,$login,$password)
     return save_data("users",$myObj);
 }
 
+function subscribe_admin($prenom,$nom,$login,$password)
+{
+    $myObj = new StdClass();
+    $myObj->nom = $nom;
+    $myObj->prenom = $prenom;
+    $myObj->login = $login;
+    $myObj->password = $password;
+    $myObj->role = "ADMIN";
+    $myObj->score = 0;
+    return save_data("users",$myObj);
+}
+

@@ -12,6 +12,6 @@ function save_data($key,$array)
 {
     $data[$key]= find_data($key);
     array_push($data[$key],$array);
-    $empData = json_encode(["users"=>$data[$key]],JSON_PRETTY_PRINT);
+    $empData = json_encode([$key=>$data[$key]],JSON_PRETTY_PRINT);
     file_put_contents(PATH_DB,$empData);
 }

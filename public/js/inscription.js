@@ -70,7 +70,6 @@ function verification(champ , funchamp) {
     return false;
 }
 
-
 //==========================================================
 subbtn.addEventListener('click',function (e) {
     verification(subprenom,valid_nom(subprenom))
@@ -80,42 +79,31 @@ subbtn.addEventListener('click',function (e) {
     verification(subpassword2,valide_confirm());
     if (champ_rempli(subprenom) && champ_rempli(subnom) && champ_rempli(sublogin) && champ_rempli(subpassword) && champ_rempli(subpassword2)) {
         if (!valid_login() ) {
-            console.log("dougneuhl");
             sublogin.style.border = "4px solid red";
             e.preventDefault();
         }
         if (!valid_password()) {
-            console.log("dougneuhp");
             subpassword.style.border = "4px solid red";
             e.preventDefault();
 
         }
         if (!valid_nom(subprenom)) {
-            console.log("dougneuhpr");
-
             subprenom.style.border = "4px solid red";
             e.preventDefault();
         }
         if (!valid_nom(subnom)) {
-            console.log("dougneuhn");
-
             subnom.style.border = "4px solid red";
             e.preventDefault();
         }
         if (!valide_confirm()) {
-            console.log("dougneuhp2");
-
             subpassword2.style.border = "4px solid red";
             e.preventDefault();
         }
     } else {
-        console.log("dougneuh");
         e.preventDefault();
     }
 })
 
-
 exitreussite.addEventListener('click',function () {
-    console.log("ok");
     inscriptionreussie.style.visibility = "hidden";
 })

@@ -34,13 +34,14 @@ body {
 
 
 .bodyinscription {
+    color: dimgray;
     overflow-y: hidden;
     background-color: white ;
     border-radius: 10px;
     padding: 0.5% 2%;
     display: flex;
-    border: 1px solid black;
-    height: 90vh;
+    border: 2px solid dimgray;
+    height: 90%;
     width: 90%;
     margin: 1%;
 }
@@ -96,6 +97,10 @@ body {
     border: none;
     border: 1px solid dimgray;
     padding-left: 2%;
+}
+
+.sub input:focus {
+    border: 1px solid rgb(43, 118, 129);
 }
 
 #chargerimg{

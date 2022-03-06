@@ -29,17 +29,17 @@ require_once(PATH_VIEWS."include".DIRECTORY_SEPARATOR."header.html.php");
                     if (is_admin()) {
             ?>
             <ul>
-                <div id="listerquestions"><li>Listes Questions</li><img src="<?php echo WEBROOT."img".DIRECTORY_SEPARATOR."ic-liste.png" ; ?>" alt=""></div>
-                <div id="ajouteradmin"><li>Ajouter Admin</li><img src="<?php echo WEBROOT."img".DIRECTORY_SEPARATOR."ic-ajout.png" ; ?>" alt=""></div>
-                <div id="listerjoueurs"><li>Listes Joueurs </li><img src="<?php echo WEBROOT."img".DIRECTORY_SEPARATOR."ic-liste.png" ; ?>" alt=""></div>
-                <div id="ajouterquestions"><li>Ajouter Questions</li><img src="<?php echo WEBROOT."img".DIRECTORY_SEPARATOR."ic-ajout.png" ; ?>" alt=""></div>
+                <li><a id="listerquestions" href="<?php echo WEBROOT."?controller=user&action=accueil&view=listerquestions&page=1"; ?>"><span>Listes Questions</span><img src="<?php echo WEBROOT."img".DIRECTORY_SEPARATOR."ic-liste.png" ; ?>" alt=""></a></li>
+                <li><a id="ajouteradmin" href="<?php if ($_SESSION[USER_KEY]['login'] === "admin07@gmail.com") {echo WEBROOT."?controller=user&action=accueil&view=ajouteradmin";}else {echo "#";}  ?>"><span>Ajouter Admin</span><img src="<?php echo WEBROOT."img".DIRECTORY_SEPARATOR."ic-ajout.png" ; ?>" alt=""></a></li>
+                <li><a id="listerjoueurs" href="<?php echo WEBROOT."?controller=user&action=accueil&view=listerjoueurs&page=1"; ?>"><span>Listes Joueurs</span><img src="<?php echo WEBROOT."img".DIRECTORY_SEPARATOR."ic-liste.png" ; ?>" alt=""></a></li>
+                <li><a id="ajouterquestions" href="<?php echo WEBROOT."?controller=user&action=accueil&view=ajouterquestions"; ?>"><span>Ajouter Questions</span><img src="<?php echo WEBROOT."img".DIRECTORY_SEPARATOR."ic-ajout.png" ; ?>" alt=""></a></li>
             </ul>
             <?php
-            } else {
-                $array = find_data("users");
-                $rang = 1;
-                foreach ($array as $value) {
-                    if ($_SESSION[USER_KEY]['score'] < $value['score']) {
+                } else {
+                    $array = find_data("users");
+                    $rang = 1;
+                    foreach ($array as $value) {
+                        if ($_SESSION[USER_KEY]['score'] < $value['score']) {
                         $rang++;
                     }
                 }
@@ -53,36 +53,16 @@ require_once(PATH_VIEWS."include".DIRECTORY_SEPARATOR."header.html.php");
             ?>
         </div>
     </div>
-<!--     <?php
-            if (isset($_GET['action'])) {
-                if (is_admin()) {
-            ?>
- -->    <div class="droite">
-            <div class="default"><h1>Bienvenue Admin</h1></div>
-            <div class="listejoueurs">
-                <?php require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."listes.joueurs.html.php") ?>
-            </div>
-            <div class="newadmin">
-                <?php 
-                require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."ajout.admin.html.php") 
-                ?>
-            </div>
-            <div class="listequestions">
-                listequestions
-            </div>
-            <div class="newquestion">
-                newquestion
-            </div>
-        </div>
-<!--     <?php } else {?>
- -->        <div class="droitejoueur"><div><button id="jouer">Jouer</button></div></div>
-<!--     <?php }   }?>
- -->    </div>
+    <?php
+        if (isset($_GET['action'])) {
+            if (is_admin()) {
+                echo $content_for_views;
+            } else {?>
+                <div class="droitejoueur"><div><button id="jouer">Jouer</button></div></div>
+            <?php }  
+        }?>
 </div>
 
 <?php
 require_once(PATH_VIEWS."include".DIRECTORY_SEPARATOR."footer.html.php");
-/* if (isset($_GET['true'])) {
-    unset($_GET['true']);
-} */
 ?>

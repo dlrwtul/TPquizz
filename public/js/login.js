@@ -32,6 +32,7 @@ function valid_password() {
             return true;
         }
     }
+    errorpassword.innerHTML = "login ou mot de passe incorect";
     return false
 }
 
@@ -40,17 +41,16 @@ function verification(champ , funchamp) {
     if (champ === login) {
         errorchamp = errorlogin;
     }
-    errorchamp.style.visibility = "hidden"
     if (champ_rempli(champ)) {
         if (funchamp()) {
             champ.style.border = "4px solid green";
+            errorchamp.innerHTML = "";
             return true ;
         } else {
             champ.style.border = "4px solid red";
         }
     } else {
         champ.style.border = "4px solid red";
-        errorchamp.style.visibility = "visible"
         errorchamp.innerHTML = "Champ Obligatoire";
     }
     return false;
@@ -62,15 +62,7 @@ function verification(champ , funchamp) {
 btn.addEventListener('click',function (e) {
     verification(login,valid_login);
     verification(password,valid_password);
-    if (champ_rempli(login) && champ_rempli(password)) {
-        if (!valid_login() || !valid_password()) {
-            login.style.border = "4px solid red";
-            password.style.border = "4px solid red";
-            errorpassword.style.visibility = "visible"
-            errorpassword.innerHTML = "login ou password incorrect!";
-            e.preventDefault();
-        }
-    } else {
+    if (!verification(login,valid_login) || !verification(password,valid_password)) {
         e.preventDefault();
     }
 })

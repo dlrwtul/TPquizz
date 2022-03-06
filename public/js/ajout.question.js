@@ -56,6 +56,7 @@ function build() {
 
     const reponsetext = document.createElement("input");
     reponsetext.setAttribute("type","text");
+    reponsetext.name =alphabet[numRep];
 
     reponsediv.appendChild(reponsetext)
 
@@ -67,14 +68,20 @@ function build() {
     switch (typerep.value) {
         case "radio":
             correct.setAttribute("type","radio");
+            reponsetext.addEventListener('keyup',function () {
+                correct.value = reponsetext.value;
+            })
             break;
         case "text":
             reponsetext.remove();
             correct.setAttribute("type","text");
             break;
         default:
-            correct.name = alphabet[numRep];
+            correct.name = "rep" + numRep;
             correct.setAttribute("type","checkbox");
+            reponsetext.addEventListener('keyup',function () {
+                correct.value = reponsetext.value;
+            })
             break;
     }
 
@@ -86,7 +93,7 @@ function build() {
     imgspanrep.src = "/TPQUIZZ/public/img/ic-supprimer.png";
     imgspanrep.addEventListener('click',function () {
         reponsediv.remove();
-        numRep = numRep-1;
+        //numRep = numRep-1;
     })
     spanrep.appendChild(imgspanrep);
 

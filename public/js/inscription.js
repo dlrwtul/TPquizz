@@ -8,7 +8,6 @@ const subpassword = document.querySelector("#subpassword");
 const subpassword2 = document.querySelector("#subpassword2");
 
 //==========================================================
-
 function champ_rempli(input) {
     if (input.value !== "") {
         return true;
@@ -21,6 +20,7 @@ function valid_login() {
     if (sublogin.value.match(validRegex)) {
         return true;
     }
+    sublogin.nextElementSibling.innerHTML = "le login doit etre un email valide!";
     return false;
 }
 
@@ -31,7 +31,11 @@ function valid_password() {
         const regex2 = /[1-9]/;
         if (str.match(regex1) && str.match(regex2)) {
             return true;
+        } else {
+            subpassword.nextElementSibling.innerHTML = "le mot de passe doit contenir au moins une lettre Maj et un chiffre!";
         }
+    }else {
+        subpassword.nextElementSibling.innerHTML = "le mot de passe doit contenir au moins 6 carateres!";
     }
     return false
 }
@@ -43,6 +47,7 @@ function valide_confirm()
     if (str === str2) {
         return true;
     }
+    subpassword2.nextElementSibling.innerHTML = "confirmation invalide!";
     return false;
 }
 
@@ -53,18 +58,21 @@ function valid_nom(nom)
     if (str.length <= 15 && str.match(regex)) {
         return true;
     }
+    nom.nextElementSibling.innerHTML = "veuiller entrer uniquement des caracteres alphabetique!";
     return false;
 }
 
 function verification(champ , funchamp) {
     if (champ_rempli(champ)) {
         if (funchamp) {
+            champ.nextElementSibling.innerHTML = "";
             champ.style.border = "4px solid green";
             return true ;
         } else {
             champ.style.border = "4px solid red";
         }
     } else {
+        champ.nextElementSibling.innerHTML = "champ obligatoire!";
         champ.style.border = "4px solid red";
     }
     return false;
@@ -77,31 +85,10 @@ subbtn.addEventListener('click',function (e) {
     verification(sublogin,valid_login());
     verification(subpassword,valid_password());
     verification(subpassword2,valide_confirm());
-    if (champ_rempli(subprenom) && champ_rempli(subnom) && champ_rempli(sublogin) && champ_rempli(subpassword) && champ_rempli(subpassword2)) {
-        if (!valid_login() ) {
-            sublogin.style.border = "4px solid red";
-            e.preventDefault();
-        }
-        if (!valid_password()) {
-            subpassword.style.border = "4px solid red";
-            e.preventDefault();
-
-        }
-        if (!valid_nom(subprenom)) {
-            subprenom.style.border = "4px solid red";
-            e.preventDefault();
-        }
-        if (!valid_nom(subnom)) {
-            subnom.style.border = "4px solid red";
-            e.preventDefault();
-        }
-        if (!valide_confirm()) {
-            subpassword2.style.border = "4px solid red";
-            e.preventDefault();
-        }
-    } else {
+    if (!verification(subprenom,valid_nom(subprenom)) || !verification(subnom,valid_nom(subnom)) || !verification(sublogin,valid_login()) || !verification(subpassword,valid_password()) || !verification(subpassword2,valide_confirm())) {
         e.preventDefault();
     }
+    
 })
 
 exitreussite.addEventListener('click',function () {

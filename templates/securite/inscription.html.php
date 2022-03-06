@@ -9,22 +9,23 @@ require_once(PATH_VIEWS."include".DIRECTORY_SEPARATOR."header.html.php");
     }
 ?>
 <div class="bodyinscription">
+    <div class="bodyinscription2">
     <div class="gaucheI">
         <div class="formtitleI">
             <h2>S'INSCRIRE</h2>
             <span>Pour tester votre niveau de culture générale</span>
         </div>
         <div class="formulaireI">
-            <form action="<?php WEBROOT ?>" method="post">
+            <form action="<?php echo WEBROOT."" ; ?>" method="post">
                 <small style="color: red;"><?php if(isset($_SESSION['errori']['loginpresent'])) {echo $_SESSION['errori']['loginpresent'];} ?></small>
                 <input type="hidden" name="controller" value="securite">
                 <input type="hidden" name="action" value="inscription">
 
-                <div class="sub"><label for="subprenom">Prenom</label><input type="text" name="subprenom" id="subprenom" placeholder="Prenom" value=""></div>
-                <div class="sub"><label for="subnom">Nom</label><input type="text" name="subnom" id="subnom" placeholder="Nom" value=""></div>
-                <div class="sub"><label for="sublogin">Login</label><input type="text" name="sublogin" id="sublogin" placeholder="Login" value=""></div>
-                <div class="sub"><label for="subpassword">Password</label><input type="password" name="subpassword" id="subpassword" placeholder="Password" value=""></div>
-                <div class="sub"><label for="subpassword2">Confirmer Password</label><input type="password" name="subpassword2" id="subpassword2" placeholder="Confirmer Password" value=""></div>
+                <div class="sub"><label for="subprenom">Prenom</label><input type="text" name="subprenom" id="subprenom" placeholder="Prenom" value=""><small style="color: red;"></small></div>
+                <div class="sub"><label for="subnom">Nom</label><input type="text" name="subnom" id="subnom" placeholder="Nom" value=""><small style="color: red;"></small></div>
+                <div class="sub"><label for="sublogin">Login</label><input type="text" name="sublogin" id="sublogin" placeholder="Login" value=""><small style="color: red;"></small></div>
+                <div class="sub"><label for="subpassword">Password</label><input type="password" name="subpassword" id="subpassword" placeholder="Password" value=""><small style="color: red;"></small></div>
+                <div class="sub"><label for="subpassword2">Confirmer Password</label><input type="password" name="subpassword2" id="subpassword2" placeholder="Confirmer Password" value=""><small style="color: red;"></small></div>
 
                 <div id="chargerimg"><div><span>Avatar</span></div><div><button>Choisir un fichier</button></div></div>
                 <input type="submit" id="subbtn" name="subbtn" value="Creer un Compte">
@@ -37,6 +38,11 @@ require_once(PATH_VIEWS."include".DIRECTORY_SEPARATOR."header.html.php");
         <img src="<?php echo WEBROOT."img".DIRECTORY_SEPARATOR."player.png" ; ?>" alt="">
         <h2>Avatar du joueur</h2>
     </div>
+    </div>
+    <div class="escalier"></div>
+    <div class="escalier"></div>
+    <div class="escalier"></div>
+    <div class="escalier"></div>
 </div>
 
 <?php

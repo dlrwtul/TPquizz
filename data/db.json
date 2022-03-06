@@ -41,60 +41,91 @@
             "score": 0
         },
         {
-            "nom": "diop",
-            "prenom": "ibou",
-            "login": "iboudiop@gmail.com",
-            "password": "Ibou11",
-            "role": "JOUEUR",
-            "score": 0
-        },
-        {
-            "nom": "jbjqisbc",
-            "prenom": "Admin",
-            "login": "ibou@gmail.com",
-            "password": "1Azert",
-            "role": "JOUEUR",
-            "score": 0
-        },
-        {
-            "nom": "bongo",
-            "prenom": "bongo",
-            "login": "bongo@gmail.com",
-            "password": "Bongo11",
-            "role": "JOUEUR",
-            "score": 0
-        },
-        {
-            "nom": "diop",
-            "prenom": "base",
-            "login": "basediop@gmail.com",
-            "password": "Base11",
-            "role": "JOUEUR",
-            "score": 0
-        },
-        {
-            "nom": "soum",
-            "prenom": "nabou",
-            "login": "nabousoum@gmail.com",
-            "password": "Nabou11",
-            "role": "JOUEUR",
-            "score": 0
-        },
-        {
-            "nom": "messi",
-            "prenom": "messi",
-            "login": "messi@gmail.com",
-            "password": "Messi11",
+            "nom": "admin1",
+            "prenom": "admin1",
+            "login": "admin08@gmail.com",
+            "password": "Admin08",
             "role": "ADMIN",
             "score": 0
         },
         {
-            "nom": "admin",
-            "prenom": "rasta",
-            "login": "rasta@gmail.com",
-            "password": "Rasta11",
+            "nom": "admin09",
+            "prenom": "admin09",
+            "login": "admin09@gmail.com",
+            "password": "Admin09",
             "role": "ADMIN",
             "score": 0
+        }
+    ],
+    "questions": [
+        {
+            "question": "Le meilleur footballeur au monde",
+            "nbrpts": "4",
+            "reponses": [
+                "messi",
+                "CR7",
+                "Neymar"
+            ]
+        },
+        {
+            "question": "La capitale de Dakar",
+            "nbrpts": "4",
+            "reponses": [
+                "Dakar",
+                "ST Louis",
+                "pas de reponse"
+            ]
+        },
+        {
+            "question": "Le president de la Russie",
+            "nbrpts": "4",
+            "reponses": [
+                "<input>"
+            ]
+        },
+        {
+            "question": "Les langages cot\u00e9 Front",
+            "nbrpts": "4",
+            "reponses": [
+                "PHP",
+                "JS",
+                "React"
+            ]
+        },
+        {
+            "question": "Vainqueur de la coupe d' Afrique 2022",
+            "nbrpts": "4",
+            "reponses": [
+                "Cameroun",
+                "Senegal"
+            ]
+        },
+        {
+            "question": "Comment t'apelles tu?",
+            "nbrpts": "4",
+            "reponses": [
+                "Lutwrld",
+                "Lang",
+                "Ibrahim"
+            ]
+        },
+        {
+            "question": "kestion?",
+            "nbrpts": "2",
+            "reponses": [
+                "hey",
+                "ok",
+                "but"
+            ],
+            "correct": "ok"
+        },
+        {
+            "question": "comment t'appelles tu?",
+            "nbrpts": "2",
+            "reponses": [
+                "<input>"
+            ],
+            "correct": "ibrahim"
         }
     ]
 }

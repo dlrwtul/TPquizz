@@ -1,5 +1,5 @@
 <?php 
-
+ini_set('display_errors','on');
 if (session_status() == 1) {
     session_start();
 }

@@ -1,5 +1,6 @@
     </div>
     <script src="<?php echo WEBROOT."js".DIRECTORY_SEPARATOR."inscription.js"; ?>"></script>
+    <script src="<?php echo WEBROOT."js".DIRECTORY_SEPARATOR."ajout.question.js"; ?>"></script>
     <script src="
     <?php 
     if (isset($_GET['action'])) {

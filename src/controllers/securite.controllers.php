@@ -1,5 +1,4 @@
 <?php 
-
 require_once(PATH_SRC."models".DIRECTORY_SEPARATOR."users.model.php");
 
 if ($_SERVER["REQUEST_METHOD"]== "POST") {
@@ -78,13 +77,6 @@ function connexion($login,$password)
     }
 }
 
-function deconnexion()
-{
-    session_destroy();
-    header("location:".WEBROOT);
-    exit();
-}
-
 function inscription($prenom,$nom,$login,$password,$cpassword)
 {
     $messageErrorI =[];
@@ -103,7 +95,7 @@ function inscription($prenom,$nom,$login,$password,$cpassword)
 
     if (count($messageErrorI) == 0) {
         if (!login_present($login)) {
-            subscribe_user($prenom,$nom,$login,$password);
+            subscribe($prenom,$nom,$login,$password,"JOUEUR");
             header("location:".WEBROOT."?controller=securite&action=inscription&true=true");
         } else {
             $messageErrorI['loginpresent'] = "login deja utilisé";
@@ -116,4 +108,11 @@ function inscription($prenom,$nom,$login,$password,$cpassword)
         header("location:".WEBROOT."?controller=securite&action=inscription");
     }
 
+}
+
+function deconnexion()
+{
+    session_destroy();
+    header("location:".WEBROOT);
+    exit();
 }

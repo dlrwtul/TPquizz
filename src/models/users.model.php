@@ -1,7 +1,8 @@
 <?php 
 function authentificate($login,$password)
 {
-    $users=find_data("users");
+    $data = find_data();
+    $users=$data["users"];
     foreach ($users as $user) {
         if ($user['login'] == $login && $user['password'] == $password) {
             return $user;
@@ -12,7 +13,8 @@ function authentificate($login,$password)
 
 function login_present($login)
 {
-    $users=find_data("users");
+    $data = find_data();
+    $users=$data["users"];
     foreach ($users as $user) {
         if ($user['login'] == $login) {
             return true;
@@ -21,27 +23,36 @@ function login_present($login)
     return false;
 }
 
-function subscribe_user($prenom,$nom,$login,$password)
+function question_presente($question)
+{
+    $data = find_data();
+    $questions=$data["questions"];
+    foreach ($questions as $unequestion) {
+        if ($unequestion['questions'] == $question) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function subscribe($prenom,$nom,$login,$password,$role)
 {
     $myObj = new StdClass();
     $myObj->nom = $nom;
     $myObj->prenom = $prenom;
     $myObj->login = $login;
     $myObj->password = $password;
-    $myObj->role = "JOUEUR";
+    $myObj->role = $role;
     $myObj->score = 0;
     return save_data("users",$myObj);
 }
 
-function subscribe_admin($prenom,$nom,$login,$password)
+function new_question($question,$nbrpts,$reponses,$correct = "")
 {
     $myObj = new StdClass();
-    $myObj->nom = $nom;
-    $myObj->prenom = $prenom;
-    $myObj->login = $login;
-    $myObj->password = $password;
-    $myObj->role = "ADMIN";
-    $myObj->score = 0;
-    return save_data("users",$myObj);
+    $myObj->question = $question;
+    $myObj->nbrpts = $nbrpts;
+    $myObj->reponses = $reponses;
+    $myObj->correct = $correct;
+    return save_data("questions",$myObj);
 }
-
